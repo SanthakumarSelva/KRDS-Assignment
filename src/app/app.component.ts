@@ -23,12 +23,10 @@ export class AppComponent {
   ngOnInit(): void {
     // Fetch Data From Api //
     this.sharedService.getProducts().pipe(take(1)).subscribe((data) => {
-      console.log(data);
       const apiData = data as any;
       if (apiData && apiData.features && apiData.logo) { // Checks features and logo exists in response
         this.mainLogo = apiData.logo;
         this.features = apiData.features;
-        console.log(this.features);
       }
     });
   }

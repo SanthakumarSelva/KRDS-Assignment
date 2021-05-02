@@ -11,7 +11,6 @@ export class FeaturesComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(): void {
-    console.log(this.features);
   }
 
 }
