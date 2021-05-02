@@ -7,6 +7,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 })
 export class HeaderComponent implements OnChanges {
 @Input() logo: any;
+@Input() isDesktop!: Boolean
   constructor() { }
 
   ngOnChanges() {

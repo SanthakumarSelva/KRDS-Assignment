@@ -1,13 +1,14 @@
-<div class="features-container">
-    <div class="feature-card"  *ngFor="let feature of features; let i = index"
-    [ngStyle]="{'background-color': i === 0 ? 'var(--col-green)' : i === 1 ? 'var(--col-orange)' : i === 2 ? 'var(--col-purple)' : i === 3 ? 'var(--col-orange-dark)' : i === 4 ? 'var(--col-red-light)' : i === 5 ? 'var(--col-blue)' : 'none' }">
+<div class="features-container" *ngIf="isDesktop">
+    <div class="feature-card" *ngFor="let feature of features; let i = index"
+        [ngStyle]="{'background-color': i === 0 ? 'var(--col-green)' : i === 1 ? 'var(--col-orange)' : i === 2 ? 'var(--col-purple)' : i === 3 ? 'var(--col-orange-dark)' : i === 4 ? 'var(--col-red-light)' : i === 5 ? 'var(--col-blue)' : 'none' }">
         <div class="feature-content">
-            <div class="feature-logo">
+            <div class="feature-logo" [ngStyle]="{'margin-left' : (i === 0 || i === 1 || i === 5) ? '-25px' : '0'}">
                 <img src="{{feature.logo}}" alt="{{feature.title}}">
             </div>
             <div class="feature-title">
                 {{feature.title}}
             </div>
+            <div class="border-line"></div>
             <div class="feature-desc">
                 {{feature.desc}}
             </div>
@@ -16,4 +17,35 @@
             <img src="{{feature.image}}" alt="{{feature.image}}">
         </div>
     </div>
+</div>
+
+<div class="featureSlider" *ngIf="!isDesktop">
+    <ngb-carousel *ngIf="features.length > 0" style="z-index: 1;">
+        <ng-container *ngFor="let feature of features; let i = index">
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper"
+                    [ngStyle]="{'background-color': i === 0 ? 'var(--col-green)' : i === 1 ? 'var(--col-orange)' : i === 2 ? 'var(--col-purple)' : i === 3 ? 'var(--col-orange-dark)' : i === 4 ? 'var(--col-red-light)' : i === 5 ? 'var(--col-blue)' : 'none' }">
+
+
+                    <div class="feature-content">
+                        <div class="feature-logo"
+                            [ngStyle]="{'margin-left' : (i === 0 || i === 1 || i === 5) ? '-25px' : '0'}">
+                            <img src="{{feature.logo}}" alt="{{feature.title}}">
+                        </div>
+                        <div class="feature-title">
+                            {{feature.title}}
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="feature-desc">
+                            {{feature.desc}}
+                        </div>
+                    </div>
+                    <div class="feature-img" [ngClass]="{'lastImg': i === 5}">
+                        <img src="{{feature.image}}" alt="{{feature.image}}">
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+
+    </ngb-carousel>
 </div>

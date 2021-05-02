@@ -7,6 +7,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 })
 export class FeaturesComponent implements OnChanges {
   @Input() features!: Array<any>;
+  @Input() isDesktop!: Boolean
   constructor() { }
 
   ngOnChanges(): void {

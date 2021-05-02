@@ -1,5 +1,5 @@
 .features-container {
-    color: white;
+   
     content: "";
     display: table;
     clear: both;
@@ -31,4 +31,41 @@
 
 .feature-content {
     margin-left: 4rem;
+    margin-right: 1rem;
+    color: white;
+}
+
+.feature-desc {
+    text-transform: uppercase;
+}
+.feature-title {
+    font-size: 1.5rem;
+}
+
+.border-line {
+    border-top: 2px solid white;
+    margin: 15px 15px 15px 0
+}
+
+.picsum-img-wrapper {
+    max-height: 88vh;
+    min-height: 88vh;
+}
+
+@media screen and (max-width: 640px) {
+    .feature-img img {
+        display: flex;
+        justify-content: center;
+        width: 60%;
+        height: auto;
+        margin: auto;
+    }
+
+    .feature-content {
+        padding: 20px;
+    }
+
+    .lastImg {
+        margin-top: 35%;
+    }
 }

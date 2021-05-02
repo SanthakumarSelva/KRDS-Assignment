@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { SharedService } from './shared/shared.service';
 
@@ -10,7 +10,15 @@ import { SharedService } from './shared/shared.service';
 export class AppComponent {
   features: Array<{}> = [];
   mainLogo = null;
-  constructor(private sharedService: SharedService) { }
+  isDesktop: Boolean = true; 
+  constructor(private sharedService: SharedService) { 
+    const innerWidth = window.screen.width;
+      if (innerWidth > 640) {
+        this.isDesktop = true;
+      } else {
+        this.isDesktop = false;
+      }
+  }
 
   ngOnInit(): void {
     // Fetch Data From Api //
@@ -24,4 +32,25 @@ export class AppComponent {
       }
     });
   }
+
+  @HostListener('window:scroll', ['$event']) scrollHandler($event: any) {
+    if (this.isDesktop) {
+      const navBar = document.getElementById('sticky-nav');
+      if (navBar && window.pageYOffset > 40) {
+        navBar.classList.add('nav-bg');
+      } else if (navBar) {
+        navBar.classList.remove('nav-bg');
+      }
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+      const innerWidth = window.screen.width;
+      if (innerWidth > 640) {
+        this.isDesktop = true;
+      } else {
+        this.isDesktop = false;
+      }
+    }
 }
