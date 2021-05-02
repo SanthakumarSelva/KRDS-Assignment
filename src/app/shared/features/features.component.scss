@@ -1,0 +1,34 @@
+.features-container {
+    color: white;
+    content: "";
+    display: table;
+    clear: both;
+    margin-top: -90px;
+
+    .feature-card {
+        display: flex;
+        align-items: center;
+        float: left;
+        width: 33.33%;
+        height: 500px;
+    }
+}
+
+.feature-img img {
+    width: 90%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.feature-logo {
+    margin-bottom: 14px;
+}
+.feature-logo img {
+    height: 40px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.feature-content {
+    margin-left: 4rem;
+}

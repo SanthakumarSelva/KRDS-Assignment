@@ -1,0 +1,19 @@
+<div class="features-container">
+    <div class="feature-card"  *ngFor="let feature of features; let i = index"
+    [ngStyle]="{'background-color': i === 0 ? 'var(--col-green)' : i === 1 ? 'var(--col-orange)' : i === 2 ? 'var(--col-purple)' : i === 3 ? 'var(--col-orange-dark)' : i === 4 ? 'var(--col-red-light)' : i === 5 ? 'var(--col-blue)' : 'none' }">
+        <div class="feature-content">
+            <div class="feature-logo">
+                <img src="{{feature.logo}}" alt="{{feature.title}}">
+            </div>
+            <div class="feature-title">
+                {{feature.title}}
+            </div>
+            <div class="feature-desc">
+                {{feature.desc}}
+            </div>
+        </div>
+        <div class="feature-img">
+            <img src="{{feature.image}}" alt="{{feature.image}}">
+        </div>
+    </div>
+</div>
